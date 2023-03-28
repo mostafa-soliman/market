@@ -7,7 +7,7 @@
      <div class="alert alert-danger" *ngIf="email.touched && email.errors?.['email']">your input doesn't match email format </div>
     <input ngModel name="password" #password="ngModel"  type="password"  class="form-control" placeholder="Password" required minlength="8">
      <div class="alert alert-danger" *ngIf="password.touched && password.errors?.['required']">password is required</div>
-     <div class="alert alert-danger" *ngIf="password.touched && password.errors?.['minlength']">password shoud be 8+ chaeachters </div>
+     <div class="alert alert-danger" *ngIf="password.touched && password.errors?.['minlength']">password should be 8+ characters </div>
 
     <button  class="btn btn-primary"[disabled]="f.invalid " >Login</button>
 

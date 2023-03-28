@@ -30,7 +30,7 @@ export class CartService {
     // addToStorage(item:Iitem){
     //   // localStorage.setItem('items',item)
     // }
-        //
+
     addCartToStorage(){
       localStorage.setItem('cart',JSON.stringify(this.items))
     }

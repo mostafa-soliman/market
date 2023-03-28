@@ -1,0 +1,29 @@
+<div>
+  <h2 class="text-center">Add New Items</h2>
+  <form #f="ngForm" (ngSubmit)="addNewItem(f)"  *ngFor="let item of items; let i = index">
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      ngModel
+      placeholder="Name"
+      required
+    />
+    <input
+      type="number"
+      class="form-control"
+      name="price"
+      ngModel
+      placeholder="Price"
+      required
+    />
+    <input type="file" ngModel name="image" #image required /> <br /><br />
+    <input
+      type="submit"
+      value="Add"
+      class="btn btn-primary"
+      [disabled]="f.invalid"
+    />
+    <button type="button" (click)="removeItem(item)" class="btn btn-primary">remove Item</button>
+  </form>
+</div>
