@@ -32,12 +32,12 @@ export class itemsComponent implements OnInit {
     // console.log((<HTMLInputElement>this.image.nativeElement).files);
 
   }
-  removeItem(item:Iitem){
-    this.itemsService.removeItemFromStorage(item);
-    this.upDateItem();
-  }
+  // removeItem(item:Iitem){
+  //   this.itemsService.removeItemFromStorage(item);
+  //   this.upDateItem();
+  // }
 
-  upDateItem(){
-    this.items = this.itemsService.getAllItems();
-  }
+  // upDateItem(){
+  //   this.items = this.itemsService.getAllItems();
+  // }
 }

@@ -17,10 +17,10 @@
           <a class="nav-link" routerLink="/admin"routerLinkActive="active" >Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          <a class="nav-link" [hidden]="isUserLog" routerLink="/login" routerLinkActive="active" (click)="Login('token','123456789')">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
+          <a class="nav-link" [hidden]="isUserLog" routerLink="/signup" routerLinkActive="active">Signup</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/order"routerLinkActive="active">Order</a>
@@ -29,10 +29,7 @@
           <a class="nav-link" routerLink="/account"routerLinkActive="active">Account</a>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-danger">LogOut</button>
-        </li>
-        <li class="nav-item" >
-          <button type="button" class="btn btn-success" routerLink="/cart">5-20</button>
+          <button type="button" [hidden]="!isUserLog" class="btn btn-danger" (click)="Logout()">LogOut</button>
         </li>
 
       </ul>

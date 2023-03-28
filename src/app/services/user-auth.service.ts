@@ -1,22 +1,32 @@
 import { Injectable, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserAuthService implements OnInit {
-  // isAuth:boolean;
-  constructor() { }
-
-  ngOnInit(): void {
+  private isLoggedSubject: BehaviorSubject<boolean>;
+  constructor() {
+    this.isLoggedSubject = new BehaviorSubject<boolean>(this.isUserLogged);
   }
 
-  login(){
+  ngOnInit(): void {}
+
+  login(userName: string, password: string) {
+    let userToken = '123456789';
+    localStorage.setItem('token', userToken);
+    this.isLoggedSubject.next(true);
+  }
+  logOut() {
+    localStorage.removeItem('token');
+    this.isLoggedSubject.next(false);
 
   }
-  logOut(){
-
+  getUserLog() {
+    return this.isLoggedSubject.asObservable();
   }
-  getUserLog(){
 
+  get isUserLogged(): boolean {
+    return localStorage.getItem('token') ? true : false;
   }
 }

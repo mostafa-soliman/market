@@ -1,6 +1,6 @@
 <div>
   <h2 class="text-center">Add New Items</h2>
-  <form #f="ngForm" (ngSubmit)="addNewItem(f)"  *ngFor="let item of items; let i = index">
+  <form #f="ngForm" (ngSubmit)="addNewItem(f)">
     <input
       type="text"
       class="form-control"
@@ -24,6 +24,6 @@
       class="btn btn-primary"
       [disabled]="f.invalid"
     />
-    <button type="button" (click)="removeItem(item)" class="btn btn-primary">remove Item</button>
+    <!-- <button type="button"  class="btn btn-primary">remove Item</button> -->
   </form>
 </div>
