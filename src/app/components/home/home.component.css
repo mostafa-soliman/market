@@ -1,3 +1,38 @@
 .card-img-top{
   height: 200px;
+  width: 250px;
 }
+.card{
+  padding: 20px;
+  margin: 10px;
+}
+.photo{
+  overflow: hidden;
+
+}
+
+img{
+  transition: transform 0.25s;
+
+}
+
+.photo:hover img {
+  transform: scale(1.1);
+}
+
+/*
+.mo {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.mo img {
+  width: 120%;
+  transition: 0.5s all ease-in-out;
+}
+
+.mo:hover img {
+  transform: scale(1.2);
+} */

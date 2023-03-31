@@ -10,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
   items: Iitem[] = [];
-  total: number = 0;
+  count: number = 1;
+  x: number = 1;
+  sum: number = 0;
+
   constructor(
     private itemsService: ItemsService,
     private cartService: CartService
@@ -18,25 +21,57 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.upDateCart();
   }
+  //    الدالة دي مبتظهرش الضرب بس اشتغلت بالطريقة العادية المهم هنا محتاج اعرف لو كنت عاوز استدعي الدالة دي اعمل ايه
 
-  // totalPrice(price:number , quantity:number){
-  //   //  return item.price*quantity
-  //   this.total += +quantity*price
-
+  // استخدمة الدالة في الموصول للمجموع الكلي
+  // totalPrice(item:Iitem){
+  //  return item.price*quantity
+  // this.total = quantity*price
+  //  item.totalPrice! += item.quantity * item.price
   //  console.log(this.total);
   // }
+  total() {
+    // في خطأ في جلب المجموع الكلي
+    for (let item of this.items) {
+      this.sum += item.quantity * item.price;
+    }
+    console.log('total Price : ' + this.sum);
+
+    // return(this.sum);
+  }
 
   clearAllItem() {
-    this.cartService.clearStorage()
+
+    for (let item of this.items) {
+      this.itemsService.isInCart(item);
+      item.quantity=1;  //reseat of quantity in cart
+    }
+    this.cartService.clearStorage();
     this.upDateCart();
+
   }
 
-  removeItem(item:Iitem){
+  removeItem(item: Iitem) {
     this.cartService.removeItemFromStorage(item);
+    this.itemsService.isInCart(item);
+    this.upDateCart();
+    item.quantity=1;   //reseat of quantity in cart
+  }
+  // الشغل ده هبد تمام
+  increment(item: Iitem) {
+    this.cartService.incrementQun(item);
     this.upDateCart();
   }
 
-  upDateCart(){
+  decrement(item: Iitem) {
+    this.cartService.decrementQun(item);
+    this.upDateCart();
+  }
+  upDateCart() {
     this.items = this.cartService.getCartItems();
+  }
+
+  ret(item: Iitem): number {
+    return item.quantity * item.price;
   }
 }

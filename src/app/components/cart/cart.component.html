@@ -2,10 +2,10 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Img</th>
+      <th scope="col">Image</th>
       <th scope="col">Name</th>
-      <th scope="col">quantity</th>
-      <th scope="col">total Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
     </tr>
   </thead>
   <tbody>
@@ -20,18 +20,30 @@
       <td class="align-middle">
         <div class="mb-1">
           <label for="" class="form-label">quantity</label>
-          <input class="btn-small" type="number" min="1" #quantity />
+          <!-- <input class="btn-small" type="number" min="1" #quantity /> -->
+          <button class="btn btn-primary"   (click)="increment(item)">+</button>
+          <label for="" class="form-label"   >{{item.quantity}}</label>
+          <button class="btn btn-primary"   (click)="decrement(item)">-</button>
+
         </div>
       </td>
-      <td class="align-middle">
-        <p>{{ item.price| currency }}</p>
+      <td class="align-middle" >
+        <p>{{ret(item)| currency }}</p>
       </td>
       <td class="align-middle">
         <button class="btn btn-danger" (click)="removeItem(item)">X</button>
       </td>
     </tr>
+ <tr>
+</tr>
   </tbody>
+
 </table>
 
+<!-- في خطأ في جلب المجموع الكلي  -->
+<button type="button" class="btn btn-primary" (click)="total()">total price</button>
+<!-- <p>total price {{total()}}</p> -->
+<br>
 <button class="btn btn-primary" (click)="clearAllItem()">Clear Cart</button>
 <!-- (click)="totalPrice(item.price,quantity.value)" -->
+

@@ -2,7 +2,6 @@ import { Iitem } from './../interface/iitem';
 import { Injectable } from '@angular/core';
 import { ItemsService } from './items.service';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -20,12 +19,12 @@ export class CartService {
   }
 
   addToCart(item: Iitem) {
-    this.items = this.items.map((element) => {
-      if (item.id === element.id) {
-        element.quantity++;
-      }
-      return element;
-    });
+    // this.items = this.items.map((element) => {
+    //   if (item.id === element.id) {
+    //     element.quantity++;
+    //   }
+    //   return element;
+    // });
     this.items.push(item);
 
     this.addCartToStorage();
@@ -49,9 +48,11 @@ export class CartService {
   removeItemFromStorage(item: Iitem) {
     this.items = this.items.filter((i) => i.id !== item.id);
   }
-  clearStorage() {
 
+  clearStorage() {
     this.items = [];
+    // localStorage.removeItem('cart');
+    // ايهما صح اللي فوق ولا لاء
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
   // item.quantity * item.price
@@ -65,7 +66,6 @@ export class CartService {
     // this.x=this.items.find(()=>item.quantity)
     // console.log(++item.quantity)
     // item.quantity++
-
     this.items = this.items.map((element) => {
       if (item.id === element.id) {
         element.quantity++;
@@ -78,15 +78,12 @@ export class CartService {
   decrementQun(item: Iitem) {
     this.items = this.items
       .map((element) => {
-        if (item.id === element.id) {
+        if (item.quantity > 1 && item.id === element.id) {
           element.quantity--;
-        }
-        if(element.quantity===0){
-          this.itemsService.isInCart(element);
         }
         return element;
       })
-      .filter((e) => e.quantity >= 1); //e delete any quantity =0
+      // .filter((e) => e.quantity >= 1); //e delete any quantity =0
     this.addCartToStorage();
   }
 }

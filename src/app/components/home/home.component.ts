@@ -23,10 +23,14 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+
   addToCart(item: Iitem) {
     // this.add=+index
 
     this.cartService.addToCart(item);
+    this.itemsService.isInCart(item);
+
     // this.cartService.addToCart(item);
   }
 

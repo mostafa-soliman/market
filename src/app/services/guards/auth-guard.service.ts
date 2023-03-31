@@ -32,9 +32,12 @@ export class AuthGuardService implements CanActivate {
     // });
     if (this.userAuthService.isUserLogged) {
       return true;
-    } else {
-      this.router.navigate(['/']);
+    }
+    else
+     {
+      this.router.navigate(['/login']);
       return false;
+
     }
   }
 }

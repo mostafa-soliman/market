@@ -3,8 +3,14 @@ import { Icategory } from "./icategory"
 export interface Iitem {
   id:string,
   name?:string,
-  price?:number,
+  price:number,
   photoUrl?:string,
+  quantity:number,
   category?:Icategory,
-  quantity?: number
+  totalPrice?:number,
+  isInCart?:boolean
+
+
+
 }
+

@@ -22,22 +22,23 @@ export class itemsComponent implements OnInit {
       name:form.value.name,
       price:form.value.price,
       photoUrl:form.value.image,
-      // category:Icategory,
-      // quantity?: number
+      quantity:form.value.quantity
+            // category:Icategory,
+
     })
     // let name=(<Iitem>form.value).name,
     //     price=(<Iitem>form.value).price,
     //     image=(<HTMLInputElement>this.image.nativeElement).files;
-    console.log(form);
+    // console.log(form);
     // console.log((<HTMLInputElement>this.image.nativeElement).files);
 
   }
-  // removeItem(item:Iitem){
-  //   this.itemsService.removeItemFromStorage(item);
-  //   this.upDateItem();
-  // }
+  removeItem(item:Iitem){
+    this.itemsService.removeItemFromStorage(item);
+    this.upDateItem();
+  }
 
-  // upDateItem(){
-  //   this.items = this.itemsService.getAllItems();
-  // }
+  upDateItem(){
+    this.items = this.itemsService.getAllItems();
+  }
 }

@@ -6,5 +6,5 @@ export interface Icart {
   price?:number,
   photoUrl?:string,
   category?:Icategory,
-  quantity?: number
+  quantity: number,
 }
