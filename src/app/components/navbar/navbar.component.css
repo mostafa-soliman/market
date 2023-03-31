@@ -2,3 +2,13 @@ app-navbar{
   width: 100%;
 }
 
+/* .fixednav{
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #c53a77;
+
+} */
+

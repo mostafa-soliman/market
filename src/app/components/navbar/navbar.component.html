@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container fixed-top">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/">Market</a>
@@ -40,57 +40,40 @@
               >Dashboard</a
             >
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/order" routerLinkActive="active"
-              >Order</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/account" routerLinkActive="active"
-              >Account</a
-            >
-          </li>
-
         </ul>
-
-
       </div>
     </div>
-       <form  class="d-flex me-2 navbar-nav  navbar-right">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [hidden]="isUserLog"
-              routerLink="/login"
-              routerLinkActive="active"
-              (click)="Login('token', '123456789')"
-              >Login</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              [hidden]="isUserLog"
-              routerLink="/signup"
-              routerLinkActive="active"
-              >Signup</a
-            >
-          </li>
+    <form class="d-flex me-2 navbar-nav navbar-right">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [hidden]="isUserLog"
+          routerLink="/login"
+          routerLinkActive="active"
+          (click)="Login('token', '123456789')"
+          >Login</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [hidden]="isUserLog"
+          routerLink="/signup"
+          routerLinkActive="active"
+          >Signup</a
+        >
+      </li>
 
-          <li class="nav-item">
-            <button
-              type="button"
-              [hidden]="!isUserLog"
-              class="btn btn-danger"
-              (click)="Logout()"
-            >
-              LogOut
-            </button>
-          </li>
-
-        </form>
+      <li class="nav-item">
+        <button
+          type="button"
+          [hidden]="!isUserLog"
+          class="btn btn-danger"
+          (click)="Logout()"
+        >
+          LogOut
+        </button>
+      </li>
+    </form>
   </nav>
 </div>
-
-

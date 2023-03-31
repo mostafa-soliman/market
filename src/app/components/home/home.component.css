@@ -1,3 +1,13 @@
+.body{
+/* background-color: aqua; */
+/* height: 5000px; */
+padding-top:56px;
+  /* margin:0; */
+  /* box-sizing: border-box; */
+
+/* z-index: 0; */
+}
+
 .card-img-top{
   height: 200px;
   width: 250px;
