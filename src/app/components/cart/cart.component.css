@@ -1,15 +1,38 @@
-.bodyCart{
-  margin-top:10px ;
-  padding-top:56px;
-  background-color: #CDCE8B;
+.bodyCart {
+  margin-top: 10px;
+  padding-top: 56px;
+  background-color: #cdce8b;
 }
 
-.table{
+.table {
   /* background-color: #aca; */
-
 }
 
-.colorBtn{
+.colorBtn {
   background-color: #707120be;
-  color:#faf3ce;
+  color: #faf3ce;
+
+}
+.totalCart {
+
+  background-color: #cdce8b;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #090707;
+}
+
+.footerDiv {
+  background-color: rgba(174, 177, 65, 0.232);
+}
+
+.btn{
+  margin: 10px;
+}
+
+.styBtn{
+  margin-top: 50px;
 }
