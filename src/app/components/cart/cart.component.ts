@@ -30,14 +30,14 @@ export class CartComponent implements OnInit {
   //  item.totalPrice! += item.quantity * item.price
   //  console.log(this.total);
   // }
-  total() {
+  total():number {
     // في خطأ في جلب المجموع الكلي
     for (let item of this.items) {
       this.sum += item.quantity * item.price;
     }
-    console.log('total Price : ' + this.sum);
 
-    // return(this.sum);
+    // console.log('total Price : ' + this.sum);
+    return(this.sum);
   }
 
   clearAllItem() {
