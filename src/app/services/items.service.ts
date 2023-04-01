@@ -165,7 +165,6 @@ export class ItemsService {
       if (item.id === element.id) {
         element.isInCart = !item.isInCart;
       }
-
       return element;
     });
   }

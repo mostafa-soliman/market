@@ -4,8 +4,15 @@
 padding-top:56px;
   /* margin:0; */
   /* box-sizing: border-box; */
-
 /* z-index: 0; */
+}
+.colorBtn{
+  background-color: #707120be;
+  color:#faf3ce;
+}
+.colorBtnAdd{
+  background-color: #7071205f;
+color:rgba(233, 179, 53, 0.867);
 }
 
 .card-img-top{
@@ -15,6 +22,8 @@ padding-top:56px;
 .card{
   padding: 20px;
   margin: 10px;
+  background-color: #83853d22;
+
 }
 .photo{
   overflow: hidden;

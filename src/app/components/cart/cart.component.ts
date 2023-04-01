@@ -41,21 +41,19 @@ export class CartComponent implements OnInit {
   }
 
   clearAllItem() {
-
     for (let item of this.items) {
       this.itemsService.isInCart(item);
-      item.quantity=1;  //reseat of quantity in cart
+      item.quantity = 1; //reseat of quantity in cart
     }
     this.cartService.clearStorage();
     this.upDateCart();
-
   }
 
   removeItem(item: Iitem) {
     this.cartService.removeItemFromStorage(item);
     this.itemsService.isInCart(item);
     this.upDateCart();
-    item.quantity=1;   //reseat of quantity in cart
+    item.quantity = 1; //reseat of quantity in cart
   }
   // الشغل ده هبد تمام
   increment(item: Iitem) {

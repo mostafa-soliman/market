@@ -1,4 +1,15 @@
 .bodyCart{
+  margin-top:10px ;
   padding-top:56px;
+  background-color: #CDCE8B;
+}
 
+.table{
+  /* background-color: #aca; */
+
+}
+
+.colorBtn{
+  background-color: #707120be;
+  color:#faf3ce;
 }
