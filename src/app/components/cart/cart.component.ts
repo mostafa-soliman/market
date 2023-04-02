@@ -13,16 +13,14 @@ export class CartComponent implements OnInit {
   count: number = 1;
   x: number = 0;
   sum: number = 0;
-  totalPrice:number;
+  totalPrice: number;
   constructor(
     private itemsService: ItemsService,
     private cartService: CartService
   ) {
-    this.totalPrice=this.total();
-
+    this.totalPrice = this.total();
   }
   ngOnInit(): void {
-
     this.upDateCart();
   }
   //    الدالة دي مبتظهرش الضرب بس اشتغلت بالطريقة العادية المهم هنا محتاج اعرف لو كنت عاوز استدعي الدالة دي اعمل ايه
@@ -34,27 +32,25 @@ export class CartComponent implements OnInit {
   //  item.totalPrice! += item.quantity * item.price
   //  console.log(this.total);
   // }
-  total():number {
-  //  return this.cartService.getTotalPrice();
+  total(): number {
+    //  return this.cartService.getTotalPrice();
     // في خطأ في جلب المجموع الكلي
     this.upDateCart();
 
     let sum = 0;
     for (let item of this.items) {
-          sum += item.price;
-
-        }
-      // this.sum += item.quantity * item.price;
-
-        return(sum);
+      sum += item.price* item.quantity;
+    }
+    return sum;
   }
 
   clearAllItem() {
-    for (let item of this.items) {
-      this.itemsService.isInCart(item);
-      item.quantity = 1; //reseat of quantity in cart
-    }
+    // for (let item of this.items) {
+    // this.itemsService.isInCart(item);
+    //   item.quantity = 1; //reseat of quantity in cart
+    // }
     this.cartService.clearStorage();
+    this.itemsService.removeAllItemForCart();
     this.upDateCart();
   }
 
@@ -69,15 +65,12 @@ export class CartComponent implements OnInit {
     this.cartService.incrementQun(item);
     this.upDateCart();
     this.total();
-
-
   }
 
   decrement(item: Iitem) {
     this.cartService.decrementQun(item);
     this.upDateCart();
     this.total();
-
   }
   upDateCart() {
     this.items = this.cartService.getCartItems();

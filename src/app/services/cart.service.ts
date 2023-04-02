@@ -52,12 +52,13 @@ export class CartService {
   }
   removeItemFromStorage(item: Iitem) {
     this.items = this.items.filter((i) => i.id !== item.id);
+    this.addCartToStorage();
+
   }
 
   clearStorage() {
     this.items = [];
     // localStorage.removeItem('cart');
-    // ايهما صح اللي فوق ولا لاء
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
   // item.quantity * item.price
