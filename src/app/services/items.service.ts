@@ -167,6 +167,7 @@ export class ItemsService {
       }
       return element;
     });
+    this.addItemsToStorge()
   }
 
   getAllItems(): Iitem[] {

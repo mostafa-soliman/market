@@ -24,6 +24,7 @@ export class itemsComponent implements OnInit {
       photoUrl: form.value.image,
       quantity: (form.value.quantity = 1),
 
+
       // category:Icategory,
     });
     form.reset();

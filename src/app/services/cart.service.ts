@@ -6,7 +6,7 @@ import { Icart } from '../interface/icart';
 @Injectable({
   providedIn: 'root',
 })
-export class CartService  {
+export class CartService {
   items: Iitem[];
   x: number = 1;
 
@@ -18,30 +18,20 @@ export class CartService  {
     } else {
       this.items = [];
     }
-
-
   }
-  getTotalPrice():number{
-   let sum = 0;
+  getTotalPrice(): number {
+    let sum = 0;
     for (let item of this.items) {
-          sum += item.price;
-          console.log('total Price : ' + item);
+      sum += item.price;
+      console.log('total Price : ' + item);
+    }
+    // this.sum += item.quantity * item.price;
 
-        }
-      // this.sum += item.quantity * item.price;
-
-        return(sum);
+    return sum;
   }
 
   addToCart(item: Iitem) {
-    // this.items = this.items.map((element) => {
-    //   if (item.id === element.id) {
-    //     element.quantity++;
-    //   }
-    //   return element;
-    // });
     this.items.push(item);
-
     this.addCartToStorage();
   }
   // get data from home to cart
@@ -91,16 +81,14 @@ export class CartService  {
   }
 
   decrementQun(item: Iitem) {
-    this.items = this.items
-      .map((element) => {
-        if (item.quantity > 1 && item.id === element.id) {
-          element.quantity--;
-        }
-        return element;
-      })
-      // .filter((e) => e.quantity >= 1); //e delete any quantity =0
+    this.items = this.items.map((element) => {
+      if (item.quantity > 1 && item.id === element.id) {
+        element.quantity--;
+      }
+      return element;
+    });
+    // .filter((e) => e.quantity >= 1); //e delete any quantity =0
     this.addCartToStorage();
-
   }
 
   // totaly(item:Iitem){
