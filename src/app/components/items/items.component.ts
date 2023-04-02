@@ -1,4 +1,4 @@
-import {  ItemsService } from './../../services/items.service';
+import { ItemsService } from './../../services/items.service';
 import { Iitem } from './../../interface/iitem';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -12,33 +12,34 @@ export class itemsComponent implements OnInit {
   @ViewChild('image')
   items: Iitem[] = [];
   image!: ElementRef;
-  constructor(private itemsService:ItemsService) {}
+  constructor(private itemsService: ItemsService) {}
 
   ngOnInit(): void {}
 
-  addNewItem(form:NgForm) {
+  addNewItem(form: NgForm) {
     this.itemsService.addNewItem({
-      id:'50',
-      name:form.value.name,
-      price:form.value.price,
-      photoUrl:form.value.image,
-      quantity:form.value.quantity
-            // category:Icategory,
+      id: '50',
+      name: form.value.name,
+      price: form.value.price,
+      photoUrl: form.value.image,
+      quantity: (form.value.quantity = 1),
 
-    })
+      // category:Icategory,
+    });
+    form.reset();
+
     // let name=(<Iitem>form.value).name,
     //     price=(<Iitem>form.value).price,
     //     image=(<HTMLInputElement>this.image.nativeElement).files;
     // console.log(form);
     // console.log((<HTMLInputElement>this.image.nativeElement).files);
-
   }
-  removeItem(item:Iitem){
+  removeItem(item: Iitem) {
     this.itemsService.removeItemFromStorage(item);
     this.upDateItem();
   }
 
-  upDateItem(){
+  upDateItem() {
     this.items = this.itemsService.getAllItems();
   }
 }

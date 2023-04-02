@@ -15,8 +15,8 @@
         <td class="align-middle">
           <img [src]="item.photoUrl" style="height: 90px" />
         </td>
-        <td class="align-middle">
-          <h5>{{ item.name | titlecase }}</h5>
+        <td class=" align-middle">
+          <h3>{{ item.name | titlecase }}</h3>
         </td>
         <td class="align-middle">
           <div class="mb-1">
@@ -27,7 +27,7 @@
             <button class="btn colorBtn" (click)="decrement(item)">-</button>
           </div>
         </td>
-        <td class="align-middle">
+        <td class="align-middle item-price">
           <p>{{ ret(item) | currency }}</p>
         </td>
         <td class="align-middle">
@@ -43,7 +43,7 @@
     <div class="row">
       <!-- <p>total price {{total()}}</p> -->
       <div class="col">
-        <button class="btn btn-secondary styBtn" (click)="clearAllItem()">
+        <button class="btn btn-secondary " (click)="clearAllItem()">
           <mat-icon>remove_shopping_cart</mat-icon>Clear Cart
         </button>
         <!-- (click)="totalPrice(item.price,quantity.value)" -->
@@ -51,15 +51,15 @@
 
       <div class="col">
         <!-- في خطأ في جلب المجموع الكلي  -->
-        <button type="button" class="btn colorBtn styBtn" (click)="total()">
+        <!-- <button type="button" class="btn colorBtn styBtn" (click)="total()">
           total price
-        </button>
+        </button> -->
       </div>
-        <div class="col totalCart">
+        <!-- <div class="col totalCart" >
           <p class="titelCart">CART TOTALS</p>
           <hr />
           <p class="totalPrice">total price = {{ total() | currency }}</p>
-        </div>
+        </div> -->
     </div>
   </div>
 </div>

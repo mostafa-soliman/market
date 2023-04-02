@@ -1,10 +1,10 @@
-import { Icategory } from "./icategory"
+import { Iitem } from 'src/app/interface/iitem';
+// import { Icategory } from "./icategory"
 
 export interface Icart {
-  id:string,
-  name?:string,
-  price?:number,
-  photoUrl?:string,
-  category?:Icategory,
-  quantity: number,
+  items: Iitem[],
+  totalQuantity: number ,
+  totalPrice: number
+
+
 }

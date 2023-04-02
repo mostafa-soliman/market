@@ -36,3 +36,14 @@
 .styBtn{
   margin-top: 50px;
 }
+
+.form-label , .item-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+ .item-price {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+

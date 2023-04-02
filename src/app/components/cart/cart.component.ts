@@ -11,14 +11,18 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   items: Iitem[] = [];
   count: number = 1;
-  x: number = 1;
+  x: number = 0;
   sum: number = 0;
-
+  totalPrice:number;
   constructor(
     private itemsService: ItemsService,
     private cartService: CartService
-  ) {}
+  ) {
+    this.totalPrice=this.total();
+
+  }
   ngOnInit(): void {
+
     this.upDateCart();
   }
   //    الدالة دي مبتظهرش الضرب بس اشتغلت بالطريقة العادية المهم هنا محتاج اعرف لو كنت عاوز استدعي الدالة دي اعمل ايه
@@ -31,13 +35,18 @@ export class CartComponent implements OnInit {
   //  console.log(this.total);
   // }
   total():number {
+  //  return this.cartService.getTotalPrice();
     // في خطأ في جلب المجموع الكلي
-    for (let item of this.items) {
-      this.sum += item.quantity * item.price;
-    }
+    this.upDateCart();
 
-    // console.log('total Price : ' + this.sum);
-    return(this.sum);
+    let sum = 0;
+    for (let item of this.items) {
+          sum += item.price;
+
+        }
+      // this.sum += item.quantity * item.price;
+
+        return(sum);
   }
 
   clearAllItem() {
@@ -59,11 +68,16 @@ export class CartComponent implements OnInit {
   increment(item: Iitem) {
     this.cartService.incrementQun(item);
     this.upDateCart();
+    this.total();
+
+
   }
 
   decrement(item: Iitem) {
     this.cartService.decrementQun(item);
     this.upDateCart();
+    this.total();
+
   }
   upDateCart() {
     this.items = this.cartService.getCartItems();

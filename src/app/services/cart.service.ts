@@ -1,14 +1,16 @@
 import { Iitem } from './../interface/iitem';
 import { Injectable } from '@angular/core';
 import { ItemsService } from './items.service';
+import { Icart } from '../interface/icart';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartService {
+export class CartService  {
   items: Iitem[];
   x: number = 1;
 
+  // cart:Icart;
   constructor(private itemsService: ItemsService) {
     let carts = this.getFromStorage();
     if (carts) {
@@ -16,6 +18,19 @@ export class CartService {
     } else {
       this.items = [];
     }
+
+
+  }
+  getTotalPrice():number{
+   let sum = 0;
+    for (let item of this.items) {
+          sum += item.price;
+          console.log('total Price : ' + item);
+
+        }
+      // this.sum += item.quantity * item.price;
+
+        return(sum);
   }
 
   addToCart(item: Iitem) {
@@ -85,5 +100,10 @@ export class CartService {
       })
       // .filter((e) => e.quantity >= 1); //e delete any quantity =0
     this.addCartToStorage();
+
   }
+
+  // totaly(item:Iitem){
+  //  this.sum +=(item.price +item.quantity)
+  // }
 }

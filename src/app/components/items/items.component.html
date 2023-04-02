@@ -17,13 +17,22 @@
       placeholder="Price"
       required
     />
-    <input type="file" ngModel name="image" #image required /> <br /><br />
+    <input
+      type="text"
+      class="form-control"
+      ngModel
+      name="image"
+      placeholder="inter URL image"
+      #image
+      required
+    />
+    <br /><br />
     <input
       type="submit"
       value="Add"
       class="btn btn-primary"
       [disabled]="f.invalid"
     />
-    <button type="button"  class="btn btn-primary">remove Item</button>
+    <button type="button" class="btn btn-primary">remove Item</button>
   </form>
 </div>
