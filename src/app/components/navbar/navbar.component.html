@@ -43,16 +43,16 @@
         </ul>
       </div>
     </div>
-    <form class="d-flex me-2 navbar-nav navbar-right">
+    <span class="d-flex me-2 navbar-nav navbar-right">
       <li class="nav-item">
         <a
           class="nav-link"
           [hidden]="isUserLog"
           routerLink="/login"
           routerLinkActive="active"
-          (click)="Login('token', '123456789')"
           >Login</a
         >
+
       </li>
       <li class="nav-item">
         <a
@@ -74,6 +74,6 @@
           LogOut
         </button>
       </li>
-    </form>
+    </span>
   </nav>
 </div>
