@@ -23,20 +23,10 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.upDateCart();
   }
-  //    الدالة دي مبتظهرش الضرب بس اشتغلت بالطريقة العادية المهم هنا محتاج اعرف لو كنت عاوز استدعي الدالة دي اعمل ايه
 
-  // استخدمة الدالة في الموصول للمجموع الكلي
-  // totalPrice(item:Iitem){
-  //  return item.price*quantity
-  // this.total = quantity*price
-  //  item.totalPrice! += item.quantity * item.price
-  //  console.log(this.total);
-  // }
+
   total(): number {
-    //  return this.cartService.getTotalPrice();
-    // في خطأ في جلب المجموع الكلي
     this.upDateCart();
-
     let sum = 0;
     for (let item of this.items) {
       sum += item.price* item.quantity;
@@ -45,10 +35,6 @@ export class CartComponent implements OnInit {
   }
 
   clearAllItem() {
-    // for (let item of this.items) {
-    // this.itemsService.isInCart(item);
-    //   item.quantity = 1; //reseat of quantity in cart
-    // }
     this.cartService.clearStorage();
     this.itemsService.removeAllItemForCart();
     this.upDateCart();
@@ -60,7 +46,6 @@ export class CartComponent implements OnInit {
     this.upDateCart();
     item.quantity = 1; //reseat of quantity in cart
   }
-  // الشغل ده هبد تمام
   increment(item: Iitem) {
     this.cartService.incrementQun(item);
     this.upDateCart();

@@ -22,7 +22,7 @@ const routes: Routes = [
     data: { index: 2 },
     canActivate: [AuthGuardService],
   },
-  { path: 'login', component: LoginComponent, data: { index: 3 } },
+  { path: 'login', component: LoginComponent, data: { index: 3 }},
   { path: 'signup', component: SignupComponent, data: { index: 4 } },
 
   { path: '**', component: NotFoundComponent },
