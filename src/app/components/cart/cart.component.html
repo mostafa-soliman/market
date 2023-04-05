@@ -1,64 +1,85 @@
 <div class="bodyCart">
-  <table class="table" style="height: 100px">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Image</th>
-        <th scope="col">Name</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items; let i = index">
-        <th scope="row" class="align-middle">{{ i + 1 }}</th>
-        <td class="align-middle">
-          <img [src]="item.photoUrl" style="height: 90px" />
-        </td>
-        <td class=" align-middle">
-          <h3>{{ item.name | titlecase }}</h3>
-        </td>
-        <td class="align-middle">
-          <div class="mb-1">
-            <label for="" class="form-label">quantity</label>
-            <!-- <input class="btn-small" type="number" min="1" #quantity /> -->
-            <button class="btn colorBtn" (click)="increment(item)">+</button>
-            <label for="" class="form-label">{{ item.quantity }}</label>
-            <button class="btn colorBtn" (click)="decrement(item)">-</button>
-          </div>
-        </td>
-        <td class="align-middle item-price">
-          <p>{{ ret(item) | currency }}</p>
-        </td>
-        <td class="align-middle">
-          <button class="btn btn-secondary" (click)="removeItem(item)">
-            <mat-icon>remove_shopping_cart</mat-icon>
+  <div class="table-responsive ">
+    <table class="table ">
+      <thead>
+        <tr class="hidden-xs">
+          <th scope="col">#</th>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class=""  *ngFor="let item of items; let i = index">
+          <th scope="row  " class="align-middle">{{ i + 1 }}</th>
+          <td class="align-middle">
+            <img [src]="item.photoUrl" style="height: 90px" />
+          </td>
+          <td class="align-middle">
+            <h3>{{ item.name | titlecase }}</h3>
+          </td>
+          <td class="align-middle">
+            <div class="btn-group">
+              <!-- <label for="" class="form-label">quantity</label> -->
+              <!-- <input class="btn-small" type="number" min="1" #quantity /> -->
+              <button class="btn btn-sm colorBtn" (click)="increment(item)">
+                +
+              </button>
+              <button
+                for=""
+                class="btn btn-sm form-label"
+                style="border-color: transparent"
+              >
+                {{ item.quantity }}
+              </button>
+              <button class="btn btn-sm colorBtn" (click)="decrement(item)">
+                -
+              </button>
+            </div>
+          </td>
+          <td class="align-middle item-price">
+            <div class="btn-group">
+              <button
+                class="btn btn-sm form-label"
+                style="border-color: transparent"
+              >
+                {{ ret(item) | currency }}
+              </button>
+              <button
+                class="btn btn-sm form-label"
+                style="border-color: transparent"
+                (click)="removeItem(item)"
+              >
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr></tr>
+      </tbody>
+    </table>
+    <div class="container footerDiv">
+      <div class="row">
+        <!-- <p>total price {{total()}}</p> -->
+        <div class="col">
+          <button class="btn btn-secondary" (click)="clearAllItem()">
+            <mat-icon>remove_shopping_cart</mat-icon>Clear Cart
           </button>
-        </td>
-      </tr>
-      <tr></tr>
-    </tbody>
-  </table>
-  <div class="container  footerDiv">
-    <div class="row">
-      <!-- <p>total price {{total()}}</p> -->
-      <div class="col">
-        <button class="btn btn-secondary " (click)="clearAllItem()">
-          <mat-icon>remove_shopping_cart</mat-icon>Clear Cart
-        </button>
-        <!-- (click)="totalPrice(item.price,quantity.value)" -->
-      </div>
+          <!-- (click)="totalPrice(item.price,quantity.value)" -->
+        </div>
 
-      <div class="col">
-        <!-- <button type="button" class="btn colorBtn styBtn" (click)="total()">
+        <div class="col">
+          <!-- <button type="button" class="btn colorBtn styBtn" (click)="total()">
           total price
         </button> -->
-      </div>
-        <div class="col totalCart" >
+        </div>
+        <div class="col totalCart">
           <p class="titelCart">CART TOTALS</p>
           <hr />
           <p class="totalPrice">total price = {{ total() | currency }}</p>
         </div>
+      </div>
     </div>
   </div>
 </div>
