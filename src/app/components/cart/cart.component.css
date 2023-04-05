@@ -1,22 +1,31 @@
 .bodyCart {
-  margin-top: 10px;
-  padding-top: 56px;
+  margin-top: 7%;
+  padding-top: 1%;
   background-color: #cdce8b;
+  /* width: 75vh; */
+  /* box-sizing: content-box; */
 }
 
-.table {
-  /* background-color: #aca; */
+.form-label{
+  font-size: 100%;
+  font-weight: bold;
+  margin: 2%;
 }
+
+/* .table {
+  background-color: #aca;
+} */
 
 .colorBtn {
   background-color: #707120be;
   color: #faf3ce;
 
+
 }
 .totalCart {
 
   background-color: #cdce8b;
-  font-size: 20px;
+  font-size: 100%;
   font-weight: bold;
   padding-top: 10px;
   text-align: center;
@@ -30,20 +39,38 @@
 }
 
 .btn{
-  margin: 10px;
+  margin: 2%;
 }
 
 .styBtn{
   margin-top: 50px;
 }
 
-.form-label , .item-name {
+/* .form-label , .item-name {
+  font-size: 85%;
+  font-weight: bold;
+} */
+ /* .item-price {
   font-size: 15px;
   font-weight: bold;
+} */
+
+
+/* @media only screen and(max-width800px) {
+  #table-resp div{
+    width:max-content
+  }
+} */
+/*
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+  white-space: wrap;
 }
- .item-price {
-  font-size: 15px;
-  font-weight: bold;
-}
+.table-responsive th,
+.table-responsive td {
+  white-space:pre-wrap;
+} */
+
 
 

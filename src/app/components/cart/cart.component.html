@@ -1,8 +1,9 @@
-<div class="bodyCart">
-  <div class="table-responsive ">
-    <table class="table ">
+<div class="bodyCart container">
+  <!-- table-responsive  container-fluid -->
+  <div class="table-responsive">
+    <table class="table">
       <thead>
-        <tr class="hidden-xs">
+        <tr>
           <th scope="col">#</th>
           <th scope="col">Image</th>
           <th scope="col">Name</th>
@@ -11,15 +12,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr class=""  *ngFor="let item of items; let i = index">
-          <th scope="row  " class="align-middle">{{ i + 1 }}</th>
-          <td class="align-middle">
-            <img [src]="item.photoUrl" style="height: 90px" />
+        <tr *ngFor="let item of items; let i = index">
+          <th>{{ i + 1 }}</th>
+          <td>
+            <img [src]="item.photoUrl" style="height: 60px" />
           </td>
-          <td class="align-middle">
+          <td>
             <h3>{{ item.name | titlecase }}</h3>
           </td>
-          <td class="align-middle">
+          <td>
             <div class="btn-group">
               <!-- <label for="" class="form-label">quantity</label> -->
               <!-- <input class="btn-small" type="number" min="1" #quantity /> -->
@@ -38,47 +39,46 @@
               </button>
             </div>
           </td>
-          <td class="align-middle item-price">
-            <div class="btn-group">
-              <button
-                class="btn btn-sm form-label"
-                style="border-color: transparent"
-              >
-                {{ ret(item) | currency }}
-              </button>
-              <button
-                class="btn btn-sm form-label"
-                style="border-color: transparent"
-                (click)="removeItem(item)"
-              >
-                <mat-icon>delete_outline</mat-icon>
-              </button>
-            </div>
+          <td class="item-price">
+            <button
+              class="btn btn-sm form-label"
+              style="border-color: transparent"
+            >
+              {{ ret(item) | currency }}
+            </button>
+          </td>
+          <td>
+            <button
+              class="btn btn-sm form-label"
+              style="border-color: transparent"
+              (click)="removeItem(item)"
+            >
+              <mat-icon>delete_outline</mat-icon>
+            </button>
           </td>
         </tr>
-        <tr></tr>
       </tbody>
     </table>
-    <div class="container footerDiv">
-      <div class="row">
-        <!-- <p>total price {{total()}}</p> -->
-        <div class="col">
-          <button class="btn btn-secondary" (click)="clearAllItem()">
-            <mat-icon>remove_shopping_cart</mat-icon>Clear Cart
-          </button>
-          <!-- (click)="totalPrice(item.price,quantity.value)" -->
-        </div>
+  </div>
+  <div class="footerDiv">
+    <div class="row">
+      <!-- <p>total price {{total()}}</p> -->
+      <div class="col">
+        <button class="btn btn-secondary btn-sm" (click)="clearAllItem()">
+          <mat-icon>remove_shopping_cart</mat-icon>Clear Cart
+        </button>
+        <!-- (click)="totalPrice(item.price,quantity.value)" -->
+      </div>
 
-        <div class="col">
-          <!-- <button type="button" class="btn colorBtn styBtn" (click)="total()">
+      <!-- <div class="col-6"> -->
+      <!-- <button type="button" class="btn colorBtn styBtn" (click)="total()">
           total price
         </button> -->
-        </div>
-        <div class="col totalCart">
-          <p class="titelCart">CART TOTALS</p>
-          <hr />
-          <p class="totalPrice">total price = {{ total() | currency }}</p>
-        </div>
+      <!-- </div> -->
+      <div class="col-lg-3 col-md-6 col-sm-12  totalCart">
+        <p >CART TOTALS</p>
+        <hr />
+        <p>total price = {{ total() | currency }}</p>
       </div>
     </div>
   </div>

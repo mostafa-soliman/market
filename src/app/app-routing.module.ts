@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuardService } from './services/guards/auth-guard.service';
+import { AuthActiveGuard } from './services/guards/auth-active.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { index: 0 } },
@@ -22,7 +23,7 @@ const routes: Routes = [
     data: { index: 2 },
     canActivate: [AuthGuardService],
   },
-  { path: 'login', component: LoginComponent, data: { index: 3 }},
+  { path: 'login', component: LoginComponent, data: { index: 3 },canActivate: [AuthActiveGuard]},
   { path: 'signup', component: SignupComponent, data: { index: 4 } },
 
   { path: '**', component: NotFoundComponent },

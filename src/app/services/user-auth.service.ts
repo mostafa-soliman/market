@@ -29,4 +29,8 @@ export class UserAuthService implements OnInit {
   get isUserLogged(): boolean {
     return localStorage.getItem('token') ? true : false;
   }
+  get isUserClickLogged(): boolean {
+    return localStorage.getItem('token') ? false : true;
+  }
+
 }

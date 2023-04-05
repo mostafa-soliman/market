@@ -10,6 +10,7 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class LoginComponent implements OnInit {
   isUserLog: boolean = false;
+  isClicklog: boolean = false;
 
   @ViewChild('loginForm') loginForm!: NgForm;
   // can you used this by #usernameInput , #passwordInput in i/p in html
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
   Login(username: string, password: string) {
     this.userAuthService.login(username, password);
     this.isUserLog = this.userAuthService.isUserLogged;
-    // this.router.navigate(['/']);
+    // this.isClicklog=true;
+    this.isClicklog = this.userAuthService.isUserClickLogged;
+    this.router.navigate(['/']);
     this.loginForm.reset();
     // this.usernameInput.nativeElement.value = '';
     // this.passwordInput.nativeElement.value = '';

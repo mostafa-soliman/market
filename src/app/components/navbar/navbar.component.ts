@@ -3,6 +3,7 @@ import { UserAuthService } from './../../services/user-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Iitem } from 'src/app/interface/iitem';
 import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private userAuthService: UserAuthService,
     private itemsService: ItemsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router:Router
   ) {}
   ngOnInit(): void {
     this.userAuthService.getUserLog().subscribe((status) => {
@@ -33,6 +35,8 @@ export class NavbarComponent implements OnInit {
     // this.clearAllItem();
     this.userAuthService.logOut();
     this.isUserLog = this.userAuthService.isUserLogged;
+    this.router.navigate(['/']);
+
   }
 
   Login(username: string, password: string) {
