@@ -1,8 +1,11 @@
 <div class="body container-fluid">
-  <div class="row row-cols-1 row-cols-md-3 g-2" >
-    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" *ngFor="let item of items; let i = index">
+  <div class="row row-cols-1 row-cols-md-3 g-2">
+    <div
+      class="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+      *ngFor="let item of items; let i = index"
+    >
       <div
-        class="card photo  text-center text-centerd-flex justify-content-center align-items-center"
+        class="card photo text-center text-centerd-flex justify-content-center align-items-center"
       >
         <img [src]="item.photoUrl" class="card-img-top pic" alt="..." />
         <div class="card-body">
@@ -15,8 +18,8 @@
           >
             add to cart
           </button>
-          <button *ngIf="item.isInCart" class="btn colorBtnAdd">
-            <mat-icon>shopping_cart</mat-icon>Added To Cart
+          <button *ngIf="item.isInCart" class="btn btn-sm colorBtnAdd">
+            <mat-icon>shopping_cart</mat-icon>Added
           </button>
 
           <!-- <div class="mb-1" *ngIf="add===i">

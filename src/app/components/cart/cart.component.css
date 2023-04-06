@@ -1,7 +1,8 @@
 .bodyCart {
   margin-top: 7%;
   padding-top: 1%;
-  background-color: #cdce8b;
+  background-color: #ddffbb1f;
+
   /* width: 75vh; */
   /* box-sizing: content-box; */
 }
@@ -17,14 +18,14 @@
 } */
 
 .colorBtn {
-  background-color: #707120be;
+  background-color: #6c757d ;
   color: #faf3ce;
 
 
 }
 .totalCart {
 
-  background-color: #cdce8b;
+  background-color: #C7E9B0;
   font-size: 100%;
   font-weight: bold;
   padding-top: 10px;
@@ -35,7 +36,7 @@
 }
 
 .footerDiv {
-  background-color: rgba(174, 177, 65, 0.232);
+  background-color:#ddffbb1f;
 }
 
 .btn{

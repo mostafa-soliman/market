@@ -7,12 +7,12 @@ padding-top:7%;
 /* z-index: 0; */
 }
 .colorBtn{
-  background-color: #707120be;
-  color:#faf3ce;
+  background-color: #8B0000  ;
+  color: #FFFFFF;
 }
 .colorBtnAdd{
-  background-color: #7071205f;
-color:rgba(233, 179, 53, 0.867);
+  background-color: #A4BC92    ;
+  color: #FFFFFF;
 }
 
 /* .table {
@@ -40,8 +40,12 @@ color:rgba(233, 179, 53, 0.867);
 
   padding-bottom: 5px; */
   padding-bottom: 5%;
-  background-color: #83853d22;
-  height: 45vh;
+  background-color: #ddffbb1f;
+  box-shadow: 2px 2px 5px #BFBFBF;
+    height: 45vh;
+
+
+
 
 }
 
@@ -49,6 +53,7 @@ img{
   transition: transform 0.25s;
   height: 60%;
   width: 70%;
+
 }
 
 .photo:hover img {
