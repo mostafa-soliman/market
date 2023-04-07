@@ -30,6 +30,20 @@ export class CartService {
     return sum;
   }
 
+  // We sent the function to navbar to display the shopping cart
+
+  totalQuantity(): number {
+    this.getCartItems();
+    let sumQ = 0;
+    for (let item of this.items) {
+      sumQ += item.quantity;
+    }
+    return sumQ;
+  }
+
+
+
+
   addToCart(item: Iitem) {
     this.items.push(item);
     this.addCartToStorage();

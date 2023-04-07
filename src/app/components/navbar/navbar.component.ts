@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   isOpen: boolean = false;
   isUserLog: boolean = false;
   items: Iitem[] = [];
+  //  totalQuantity = new CartComponent().totalQuantity();
 
   constructor(
     private userAuthService: UserAuthService,
@@ -55,4 +56,9 @@ export class NavbarComponent implements OnInit {
   //     this.items = this.cartService.getCartItems();
 
   // }
+
+  // We called the function from cart.ts
+  get totalQuantity():number{
+    return this.cartService.totalQuantity();
+  }
 }

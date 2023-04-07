@@ -1,7 +1,14 @@
-<div class="container ">
+<div class="container">
   <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary color-nav">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">Market</a>
+      <a routerLink="/">
+        <img
+          class="navbar-brand"
+          src="https://logos.textgiraffe.com/logos/logo-name/Chocolate-designstyle-chocolate-m.png"
+          alt=""
+          srcset=""
+        />
+      </a>
       <button
         (click)="toggleNavbar()"
         class="navbar-toggler"
@@ -41,40 +48,54 @@
             >
           </li>
         </ul>
-      <span class="d-flex me-2 navbar-nav navbar-right">
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          [hidden]="isUserLog"
-          routerLink="/login"
-          routerLinkActive="active"
-          >Login</a
-        >
+        <span class="d-flex me-2 navbar-nav navbar-right">
+          <!-- We added the cart icon here in the navbar by Angular Material, specifically the badge
+And make property pinding And we called the totalQuantity function from navbar.ts
+It is called from cart.Service -->
+          <li class="nav-item">
+            <a
+              style="margin-right: 30px; color: #333333"
+              routerLink="/cart "
+              routerLinkActive="active"
+            >
+              <mat-icon mat-card-avatar>shopping_cart</mat-icon>
+              <mat-badge
+                matBadgeColor="accent"
+                [matBadge]="totalQuantity"
+              ></mat-badge>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [hidden]="isUserLog"
+              routerLink="/login"
+              routerLinkActive="active"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [hidden]="isUserLog"
+              routerLink="/signup"
+              routerLinkActive="active"
+              >Signup</a
+            >
+          </li>
 
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          [hidden]="isUserLog"
-          routerLink="/signup"
-          routerLinkActive="active"
-          >Signup</a
-        >
-      </li>
-
-      <li class="nav-item">
-        <button
-          type="button"
-          [hidden]="!isUserLog"
-          class="btn btnLogOut"
-          (click)="Logout()"
-        >
-          LogOut
-        </button>
-      </li>
-    </span>
+          <li class="nav-item">
+            <button
+              type="button"
+              [hidden]="!isUserLog"
+              class="btn btnLogOut"
+              (click)="Logout()"
+            >
+              LogOut
+            </button>
+          </li>
+        </span>
       </div>
     </div>
-
   </nav>
 </div>

@@ -34,6 +34,17 @@ export class CartComponent implements OnInit {
     return sum;
   }
 
+  // We put this function in the Cart service Instead of here because we need to use it in another Ts file
+
+  //  totalQuantity(): number {
+  //   this.upDateCart();
+  //   let sumQ = 0;
+  //   for (let item of this.items) {
+  //     sumQ += item.quantity;
+  //   }
+  //   return sumQ;
+  // }
+
   clearAllItem() {
     this.cartService.clearStorage();
     this.itemsService.removeAllItemForCart();
