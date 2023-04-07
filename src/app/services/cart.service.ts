@@ -33,7 +33,7 @@ export class CartService {
   // We sent the function to navbar to display the shopping cart
 
   totalQuantity(): number {
-    this.getCartItems();
+    this.addCartToStorage();
     let sumQ = 0;
     for (let item of this.items) {
       sumQ += item.quantity;

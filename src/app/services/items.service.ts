@@ -204,6 +204,8 @@ export class ItemsService {
   removeAllItemForCart() {
     for (let item of this.items) {
       item.isInCart = false;
+      item.quantity = 1; //reset quantity to 1
+
     }
     this.addItemsToStorge();
   }
