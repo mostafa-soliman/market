@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit {
   isOpen: boolean = false;
   isUserLog: boolean = false;
   items: Iitem[] = [];
+  search: string = '';
+
   //  totalQuantity = new CartComponent().totalQuantity();
 
   constructor(
@@ -37,6 +39,10 @@ export class NavbarComponent implements OnInit {
     this.userAuthService.logOut();
     this.isUserLog = this.userAuthService.isUserLogged;
     this.router.navigate(['/']);
+    // remove All Item For Cart after logOut
+    this.cartService.clearStorage();
+     this.itemsService.removeAllItemForCart()
+
 
   }
 

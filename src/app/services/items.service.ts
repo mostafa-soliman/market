@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Iitem } from '../interface/iitem';
+import { IitemCountry } from '../interface/iitem-country';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
+  searchTerm: string = '';
+
   items: Iitem[];
   constructor() {
     let Alls = this.getFromStorage();
@@ -178,6 +181,58 @@ export class ItemsService {
     }
   }
 
+
+  getProducts() {
+    return this.items;
+  }
+
+
+  sortItems(by: string) {
+    switch (by) {
+      case 'PRICEDECS':
+        this.items = this.items.sort((a, b) => a.price - b.price);
+        break;
+      case 'PRICEASC':
+        this.items = this.items.sort((a, b) => b.price - a.price);
+        break;
+      case 'NAME':
+        this.items = this.items.sort((a, b) => {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+        break;
+
+      default:
+        this.items = this.items.sort((a, b) => b.quantity - a.quantity);
+        break;
+    }
+
+    console.log(this.items);
+
+    // this.itemsSubject.next(this.items);
+  }
+
+  // filterProducts(): any[] {
+  //   if (!this.searchTerm) {
+  //     return this.items;
+  //   }
+  //   // console.log(
+  //   //   this.items.filter((product) =>
+  //   //     product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //   //   )
+  //   // );
+  //   return this.items.filter((product) =>
+  //     product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //   );
+  // }
+
   isInCart(item: Iitem) {
     this.items = this.items.map((element) => {
       if (item.id === element.id) {
@@ -205,7 +260,6 @@ export class ItemsService {
     for (let item of this.items) {
       item.isInCart = false;
       item.quantity = 1; //reset quantity to 1
-
     }
     this.addItemsToStorge();
   }

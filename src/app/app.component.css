@@ -1,0 +1,15 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+   /* Set the height to at least the viewport height */
+}
+
+.content {
+  flex: 1; /* Allow the content to take up remaining space */
+}
+
+.footer {
+  margin-top:100%;
+  /* Push the footer to the bottom */
+}

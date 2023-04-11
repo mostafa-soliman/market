@@ -4,6 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon'
 import { MatBadgeModule } from '@angular/material/badge';
+import { NgImageSliderModule } from 'ng-image-slider';
+import {MatSliderModule} from '@angular/material/slider';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
+
+
 
 
 
@@ -18,6 +27,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { itemsComponent } from './components/items/items.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MasterHomeComponent } from './components/master-home/master-home.component';
+import { FilterPipe } from './filter.pipe';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearcgDirective } from './Directive/searcg-directive.directive';
+import { SearchPipe } from './Pipe/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +41,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     CartComponent,
     NotFoundComponent,
     NavbarComponent,
-    itemsComponent
+    itemsComponent,
+    MasterHomeComponent,
+    FilterPipe,
+    FooterComponent,
+    SearcgDirective,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -37,7 +56,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    NgImageSliderModule,
+    MatSliderModule,
+    CarouselModule,
+    MatCardModule,
+    MatFormFieldModule
 
   ],
   providers: [],

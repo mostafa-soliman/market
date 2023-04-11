@@ -11,17 +11,36 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   add: number = -1;
   items: Iitem[] = [];
+  itemsSearch: Iitem[] = [];
+  search: string = '';
+  searchTerm: string='';
+  searchText:string='';
+
+
+
 
 
   constructor(
     private itemsService: ItemsService,
-    private cartService: CartService
+    private cartService: CartService,
   ) {}
 
   ngOnInit() {
-    this.items = this.itemsService.getAllItems();
+    this.items =  this.itemsService.getAllItems();
+    // this.itemsSearch = this.itemsService.getProducts();
 
   }
+
+
+  // filterProducts(): any[] {
+  //   if (!this.searchTerm) {
+  //     return this.itemsSearch;
+  //   }
+  //   return this.itemsSearch.filter(itemsSearch =>
+  //     itemsSearch.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //   );
+  // }
+
 
 
 
@@ -40,4 +59,12 @@ export class HomeComponent implements OnInit {
   //   console.log(data);
   //   this.add = -1;
   // }
+
+  sortItems(srt:string){
+    this.itemsService.sortItems(srt);
+  }
+
 }
+
+
+

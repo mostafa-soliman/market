@@ -1,8 +1,51 @@
+
+
+<!-- <p Style="margin-top: 300px;"></p> -->
+<div class="d-flex flex-row align-items-center bg-light p-2 shadow fixed-top-right"  >
+  <div class="flex-grow-1" >
+    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search">
+  </div>
+  <div class="ps-3">
+    <span class="form-control bg-transparent border-0">SORT:</span>
+  </div>
+  <div class="ps-3">
+    <select class="form-select" #sort (change)="sortItems(sort.value)">
+      <option selected value="sadasdasd">All</option>
+      <option value="PRICEDECS"> Price:Low to Hight</option>
+      <option value="PRICEASC"> Price:Hight to Low</option>
+      <option value="NAME">NAME</option>
+    </select>
+  </div>
+</div>
+
+
+<!-- cccccccccccccccccccccccccc -->
+
+
+<!-- <input [(ngModel)]="searchText" type="text" placeholder="Search"> -->
+
+<!-- <div class=" col col-1 inline-block">
+  <span class="form-control" style="background-color: transparent; border: 0;">SORT:
+  </span>
+</div> -->
+
+<!-- <div class=" col col-2 inline-block">
+
+  <select class="form-select col" name="" id="" #sort (change)="sortItems(sort.value)">
+    <option selected value="sadasdasd"></option>
+    <option value="PRICEDECS"> Price:Low to Hight</option>
+    <option value="PRICEASC"> Price:Hight to Low</option>
+    <option value="NAME"> NAME</option>
+  </select>
+
+</div> -->
+
+
 <div class="body container-fluid">
   <div class="row row-cols-1 row-cols-md-3 g-2">
     <div
       class="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-      *ngFor="let item of items; let i = index"
+      *ngFor="let item of items | search : searchText"
     >
       <div
         class="card photo text-center text-centerd-flex justify-content-center align-items-center"
