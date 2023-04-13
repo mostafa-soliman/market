@@ -1,7 +1,7 @@
 import { CartService } from './../../services/cart.service';
 import { ItemsService } from './../../services/items.service';
 import { Iitem } from './../../interface/iitem';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  add: number = -1;
+  // add: number = -1;
   items: Iitem[] = [];
-  itemsSearch: Iitem[] = [];
-  search: string = '';
-  searchTerm: string='';
+  // itemsSearch: Iitem[] = [];
+  // search: string = '';
+  // searchTerm: string='';
   searchText:string='';
+  isCollapsed = true;
+  isCollapsedSort = true;
 
 
 
@@ -31,6 +33,9 @@ export class HomeComponent implements OnInit {
 
   }
 
+  // onSearchChanged(searchText: string) {
+  //   this.searchText = searchText;
+  // }
 
   // filterProducts(): any[] {
   //   if (!this.searchTerm) {

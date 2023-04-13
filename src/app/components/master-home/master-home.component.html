@@ -1,6 +1,7 @@
 <div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
     <owl-carousel-o [options]="customOptions">
+
       <ng-template carouselSlide
         ><img
           class="img-banner"
@@ -201,18 +202,16 @@
         <div class="card-body">
           <h5 class="card-title">{{ x.name | uppercase }}</h5>
           <p class="card-text">{{ x.discretion }}</p>
-          <button class="btn colorBtn" (click)="goToPage()">
-            Chocolate Bay
-          </button>
+          <button class="btn colorBtn" (click)="goToPage()">Enjoy now</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
 <a routerLink="/home">
   <img
+    class="paner-offer"
     src="https://www.sarriscandiesfundraising.com/images/sliders/Banner-BarsRods-DGT-2022-TM-SC.jpg"
     alt=""
     srcset=""

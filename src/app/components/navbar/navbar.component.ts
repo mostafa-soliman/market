@@ -1,6 +1,6 @@
 import { ItemsService } from 'src/app/services/items.service';
 import { UserAuthService } from './../../services/user-auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Iitem } from 'src/app/interface/iitem';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
@@ -15,9 +15,13 @@ export class NavbarComponent implements OnInit {
   isUserLog: boolean = false;
   items: Iitem[] = [];
   search: string = '';
+  // searchText:string='';
+  isCollapsed = true;
+
+
 
   //  totalQuantity = new CartComponent().totalQuantity();
-
+  searchText: string = '';
   constructor(
     private userAuthService: UserAuthService,
     private itemsService: ItemsService,
@@ -29,6 +33,10 @@ export class NavbarComponent implements OnInit {
       this.isUserLog = status;
     });
   }
+  sortItems(srt:string){
+    this.itemsService.sortItems(srt);
+  }
+
 
   toggleNavbar() {
     this.isOpen = !this.isOpen;

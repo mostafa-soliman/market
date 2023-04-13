@@ -2,10 +2,13 @@
   padding: 0px;
   margin: 0px;
 }
+.owl-carousel-o {
+  width: 100%;
+}
 
 .img-banner {
   margin-top: 2%;
-  height: 100vh;
+  height: 75vh;
 }
 
 .card {
@@ -71,7 +74,29 @@ ng-image-slider {
   transform-origin: center center;
 }
 
+@media (max-width: 767px)and (max-width: 991px) { /* تعديل ارتفاع وعرض الصورة عندما يصغر حجم الشاشة إلى 767 بكسل أو أقل */
+  .img-banner {
+    margin-top:55px;
+    height: 50%;
+    width: 100%;
+  }
+  .paner-offer{
+    height: auto;
+    width: 100%;
+  }
+  .card {
+    width: 60%;
+    height:max-content;
 
+    margin-top: 5%;
+    margin-bottom: 1%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
 
 
 

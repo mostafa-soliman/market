@@ -52,20 +52,22 @@
               >Cart</a
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" routerLink="/admin" routerLinkActive="active"
               >Dashboard</a
             >
           </li>
 
+
         </ul>
-        <span class="d-flex  mb-2  navbar-nav navbar-right">
+        <span class="d-flex  mb-2  navbar-nav navbar-right ">
           <!-- We added the cart icon here in the navbar by Angular Material, specifically the badge
 And make property pinding And we called the totalQuantity function from navbar.ts
 It is called from cart.Service -->
 
 
-<li class="nav-item">
+<li class="nav-item  py-2">
+
             <a
               style="margin-right: 30px; color: #333333"
               routerLink="/cart "
@@ -98,7 +100,7 @@ It is called from cart.Service -->
             >
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item py-2">
             <button
               type="button"
               [hidden]="!isUserLog"
