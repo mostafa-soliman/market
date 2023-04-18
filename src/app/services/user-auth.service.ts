@@ -33,4 +33,12 @@ export class UserAuthService implements OnInit {
     return localStorage.getItem('token') ? false : true;
   }
 
+
+  // في مشكلة في الجارد مش عارف ايه هيا بس هحاول معاها ان شاء الله و اتوقف الآن
+  get isUserClickSignUp(): boolean {
+    // return localStorage.getItem('token') ? false : true;
+    return localStorage.getItem('token') ? true : false;
+
+  }
+
 }
