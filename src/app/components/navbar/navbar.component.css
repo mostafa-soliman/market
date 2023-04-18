@@ -1,3 +1,5 @@
+*, ::after, ::before {
+  box-sizing: content-box;}
 .navbar-brand {
   width: 100px;
   height: 50px;
@@ -18,6 +20,11 @@
   align-items: center;
 }
 
+.cc{
+  /* background-color: #a4bc92;
+  color: #ffffff; */
+
+}
 .nav-link.active,
 .nav-link:active {
   background-color: #8fad7b;

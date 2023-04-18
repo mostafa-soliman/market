@@ -9,18 +9,42 @@
           srcset=""
         />
       </a>
-      <button
-        (click)="toggleNavbar()"
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- <span class="d-flex navbar-nav   navbar-right"> -->
+      <span class="d-flex navbar-right">
+        <a
+          style="
+            margin-right: 20px;
+            border: none;
+            padding: 0px 0px 0px 0px;
+            outline: none;
+            color: #333333;
+          "
+          routerLink="/cart"
+          routerLinkActive="active"
+          class="navbar-toggler mt-auto"
+          *ngIf="!isOpen"
+        >
+          <mat-icon mat-card-avatar>shopping_cart</mat-icon>
+          <mat-badge
+            matBadgeColor="accent"
+            [matBadge]="totalQuantity"
+          ></mat-badge>
+        </a>
+
+        <!-- </span> -->
+        <button
+          (click)="toggleNavbar()"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </span>
       <div
         class="collapse navbar-collapse"
         [class.show]="isOpen"
@@ -30,6 +54,7 @@
           <li class="nav-item">
             <a
               class="nav-link"
+              (click)="closeNavbar()"
               aria-current="page"
               routerLink="/"
               routerLinkActive="active"
@@ -40,6 +65,7 @@
           <li class="nav-item">
             <a
               class="nav-link"
+              (click)="closeNavbar()"
               aria-current="page"
               routerLink="/home"
               routerLinkActive="active"
@@ -48,26 +74,35 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/cart" routerLinkActive="active"
+            <a
+              class="nav-link"
+              (click)="closeNavbar()"
+              routerLink="/cart"
+              routerLinkActive="active"
               >Cart</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/admin" routerLinkActive="active"
+            <a
+              class="nav-link"
+              (click)="closeNavbar()"
+              routerLink="/admin"
+              routerLinkActive="active"
               >Dashboard</a
             >
           </li>
         </ul>
-        <span class="d-flex mb-2 navbar-nav navbar-right">
+        <span class="d-flex navbar-nav navbar-right">
           <!-- We added the cart icon here in the navbar by Angular Material, specifically the badge
 And make property pinding And we called the totalQuantity function from navbar.ts
 It is called from cart.Service -->
 
-          <li class="nav-item py-2">
+          <li class="nav-item mt-auto">
             <a
               style="margin-right: 30px; color: #333333"
               routerLink="/cart"
               routerLinkActive="active"
+              *ngIf="!isOpen"
             >
               <mat-icon mat-card-avatar>shopping_cart</mat-icon>
               <mat-badge
@@ -80,6 +115,7 @@ It is called from cart.Service -->
           <li class="nav-item">
             <a
               class="nav-link"
+              (click)="closeNavbar()"
               [hidden]="isUserLog"
               routerLink="/login"
               routerLinkActive="active"
@@ -89,6 +125,7 @@ It is called from cart.Service -->
           <li class="nav-item">
             <a
               class="nav-link"
+              (click)="closeNavbar()"
               [hidden]="isUserLog"
               routerLink="/signup"
               routerLinkActive="active"
@@ -96,9 +133,10 @@ It is called from cart.Service -->
             >
           </li>
 
-          <li class="nav-item py-2">
+          <li class="nav-item">
             <button
               type="button"
+              (click)="closeNavbar()"
               [hidden]="!isUserLog"
               class="btn btnLogOut"
               (click)="Logout()"

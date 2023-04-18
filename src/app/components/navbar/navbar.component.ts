@@ -41,6 +41,11 @@ export class NavbarComponent implements OnInit {
   toggleNavbar() {
     this.isOpen = !this.isOpen;
   }
+
+  closeNavbar() {
+    this.isOpen = false;
+  }
+
   Logout() {
     //i need clear item in cart when logout
     // this.clearAllItem();
