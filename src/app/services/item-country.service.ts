@@ -27,7 +27,7 @@ export class ItemCountryService {
     {
       id:'q3',
       name:'Italian chocolate',
-      discretion:'Decadent and indulgent, made with the finest cocoa and natural ingredients. Taste the warmth and passion of Italy.',
+      discretion:'Decadent, indulgent, and rich, made with the finest cocoa and natural ingredients. Taste the warmth, passion, and luxury of Italy.',
       photoUrl:'https://img.freepik.com/premium-psd/3d-chocolate-italy-flag-rendering-left-view_391890-21839.jpg?w=740'
 
     },
