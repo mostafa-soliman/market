@@ -27,8 +27,11 @@
 }
 .nav-link.active,
 .nav-link:active {
-  background-color: #8fad7b;
-  color: #ffffff;
+  /* background-color: #ddffbb70; */
+  color: #030303;
+  border-bottom:2px solid #0fd340 ;
+  border-radius: 0%;
+
 }
 
 .color-nav img {
