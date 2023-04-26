@@ -2,6 +2,8 @@ import { Iitem } from './../../interface/iitem';
 import { CartService } from './../../services/cart.service';
 import { ItemsService } from './../../services/items.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cart',
@@ -14,14 +16,28 @@ export class CartComponent implements OnInit {
   x: number = 0;
   sum: number = 0;
   totalPrice: number;
+  paymentForm: FormGroup;
+
   constructor(
     private itemsService: ItemsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private fb: FormBuilder
+
   ) {
     this.totalPrice = this.total();
+    this.paymentForm = this.fb.group({
+      cardNumber: ['', Validators.required],
+      expiryDate: ['', Validators.required],
+      cvv: ['', Validators.required]
+    });
   }
   ngOnInit(): void {
     this.upDateCart();
+  }
+
+
+  submitPayment() {
+    //  TODO: Implement payment submission logic
   }
 
 

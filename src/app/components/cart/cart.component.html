@@ -85,4 +85,15 @@
 </div>
 
 
+<form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+  <label for="cardNumber">Card Number:</label>
+  <input type="text" formControlName="cardNumber" id="cardNumber">
 
+  <label for="expiryDate">Expiry Date:</label>
+  <input type="text" formControlName="expiryDate" id="expiryDate">
+
+  <label for="cvv">CVV:</label>
+  <input type="text" formControlName="cvv" id="cvv">
+
+  <button type="submit" [disabled]="!paymentForm.valid">Submit Payment</button>
+</form>
