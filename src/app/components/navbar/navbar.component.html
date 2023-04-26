@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-light fixed-top ">
-  <div class="container-fluid ">
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
+  <div class="container-fluid">
     <a routerLink="/">
       <img
         class="navbar-brand"
@@ -44,7 +44,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </span>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!--   [class.show]="isOpen" -->
+    <div class="collapse navbar-collapse"    [class.show]="isOpen"  id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a
