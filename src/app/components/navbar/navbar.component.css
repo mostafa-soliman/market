@@ -34,6 +34,15 @@
 
 }
 
+.nav-link.active .bi {
+  /* background-color: #ddffbb70; */
+  /* color: #030303; */
+  color: #0fd340 ;
+  /* border-radius: 0%; */
+
+}
+
+
 .color-nav img {
   height: 60px;
   margin-right: 10px;
