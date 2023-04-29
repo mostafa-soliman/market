@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Iitem } from './../../interface/iitem';
 import { CartService } from './../../services/cart.service';
 import { ItemsService } from './../../services/items.service';
@@ -21,6 +22,7 @@ export class CartComponent implements OnInit {
   constructor(
     private itemsService: ItemsService,
     private cartService: CartService,
+    private router:Router
 
   ) {
     this.totalPrice = this.total();
@@ -89,5 +91,13 @@ export class CartComponent implements OnInit {
 
    totalQuantity():number{
     return this.cartService.totalQuantity();
+  }
+
+  PayMent(){
+   this.clearAllItem();
+   this.router.navigate(['/']);
+    console.log("ffffffff")
+
+
   }
 }

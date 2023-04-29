@@ -5,6 +5,7 @@ import { IitemCountry } from 'src/app/interface/iitem-country';
 import { ItemsService } from './../../services/items.service';
 import { Router } from '@angular/router';
 import { ItemCountryService } from 'src/app/services/item-country.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-master-home',
@@ -18,11 +19,17 @@ export class MasterHomeComponent implements OnInit {
   constructor(
     private itemCountryService: ItemCountryService,
     private itemsService: ItemsService,
-    private router: Router
+    private router: Router,
+    private notifier: NotifierService
+
   ) {}
 
   ngOnInit(): void {
     this.itemCountry = this.itemCountryService.getAllItemQ();
+
+    this.notifier.notify('success', 'You are awesome! I mean it!');
+
+
   }
 
   customOptions: OwlOptions = {

@@ -10,6 +10,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
+
 
 
 
@@ -64,8 +66,8 @@ import { SearchPipe } from './Pipe/search.pipe';
     CarouselModule,
     MatCardModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    NotifierModule
   ],
   providers: [],
   bootstrap: [AppComponent]
