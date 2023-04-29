@@ -1,6 +1,6 @@
 .bodyItem{
   /* padding-top: 56px; */
-  margin-top: 18%;
+  margin-top: 200px;
 }
 .btnAdd{
   background-color: #8B0000  ;
@@ -10,3 +10,5 @@
 .btnRemove{
   background-color: #333333; color: #fff;
 }
+
+
