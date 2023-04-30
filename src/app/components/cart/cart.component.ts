@@ -4,6 +4,7 @@ import { CartService } from './../../services/cart.service';
 import { ItemsService } from './../../services/items.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 
 @Component({
@@ -96,8 +97,15 @@ export class CartComponent implements OnInit {
   PayMent(){
    this.clearAllItem();
    this.router.navigate(['/']);
-    console.log("ffffffff")
-
-
   }
+
+   disablePayButton(): void {
+    const payButton = document.querySelector('#payButton') as HTMLButtonElement;
+    if (this.total() === 0) {
+      payButton.disabled = true;
+    } else {
+      payButton.disabled = false;
+    }
+      }
+
 }

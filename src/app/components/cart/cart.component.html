@@ -1,4 +1,4 @@
-<div class=" container " style="margin-top: 75px; min-height: 59vh;">
+<div class="container" style="margin-top: 75px; min-height: 59vh">
   <!-- table-responsive  container-fluid -->
   <div class="table-responsive">
     <table class="table">
@@ -73,14 +73,17 @@
       </div>
 
       <div class="col-lg-3 col-md-6 col-sm-12 totalCart">
-        <p>CART TOTALS</p>
+        <p>CART TOTALS : {{ total() | currency }}</p>
         <hr />
         <p>Pay Now</p>
         <button
+          id="payButton"
           class="btn btn-danger btn-block"
           data-bs-toggle="modal"
           data-bs-target="#pay"
+          [disabled]="disablePayButton()"
         >
+
           {{ total() | currency }}
         </button>
 
@@ -91,111 +94,189 @@
 </div>
 
 <!-- payment modal -->
-
-<div id="pay" class="modal" tabindex="-1"  >
-  <div
-    class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
-  >
-    <div class="modal-content container" style="overflow-y: auto">
-      <div class="modal-header mx-4">
-        <h3 class="modal-title">Check out :)</h3>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-
-      <div
-
-        class="card card-body mb-1 mx-4 justify-content-center text-center"
-      >
-      <ul class="list-group mb-1">
-
-        <li
-          class="list-group-item list-group-item-primary d-flex justify-content-evenly align-items-center"
-        >
-          <i class="bi bi-check2-square"></i>
-          TOTAL QUANTITY :
-          <span class="badge bg-primary rounded-pill">{{
-            this.totalQuantity()
-          }}</span>
-        </li>
-        <li
-          class="list-group-item list-group-item-warning d-flex justify-content-evenly align-items-center"
-        >
-          <i class="bi bi-tags"></i>
-          TOTAL PRICE :
-          <span class="badge bg-danger rounded-pill"
-            >{{ total() | currency }} $</span
-          >
-        </li>
-      </ul>
-      </div>
-      <div style="background-color: #ccffe6;" class="card card-body mb-1 mx-4 justify-content-center text-center">
-        <h4 class=""> <i class="bi bi-credit-card-2-front me-3"></i>Payment</h4>
-
-        <div class="my-1 row g-3 row-col-3 justify-content-evenly ">
-          <div class="form-check col-3">
-            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="" />
-            <label class="form-check-label" for="credit">Credit card</label>
-          </div>
-          <div class="form-check col-3">
-            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="" />
-            <label class="form-check-label" for="debit">Debit card</label>
-          </div>
-          <div class="form-check col-3">
-            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="" />
-            <label class="form-check-label" for="paypal">PayPal</label>
-          </div>
+<form  #paymentForm="ngForm">
+  <div id="pay" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content container" style="overflow-y: auto">
+        <div class="modal-header  mx-4">
+          <h3 class="modal-title">Check out :)</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
 
-        <div class="row gy-3">
-          <div class="col-md-6">
-            <label for="cc-name" class="form-label">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required="" />
-            <small class="text-muted">Full name as displayed on card</small>
-            <div class="invalid-feedback">Name on card is required</div>
+        <div
+          class="card card-body mb-1 mx-4 justify-content-center text-center"
+          style="background-color: #ddffbb13; box-shadow: 2px 2px 5px #bfbfbf"
+        >
+          <ul class="list-group mb-1">
+            <li
+              class="list-group-item list-group-item-primary d-flex justify-content-evenly align-items-center"
+            >
+              <i class="bi bi-check2-square"></i>
+              TOTAL QUANTITY :
+              <span class="badge bg-primary rounded-pill">{{
+                this.totalQuantity()
+              }}</span>
+            </li>
+            <li
+              class="list-group-item list-group-item-warning d-flex justify-content-evenly align-items-center"
+            >
+              <i class="bi bi-tags"></i>
+              TOTAL PRICE :
+              <span class="badge bg-danger rounded-pill"
+                >{{ total() | currency }} $</span
+              >
+            </li>
+          </ul>
+        </div>
+        <div
+          style="background-color: #ddffbb13; box-shadow: 2px 2px 5px #bfbfbf"
+          class="card card-body mb-1 mx-4 mb-4 justify-content-center text-center"
+        >
+          <h4 class="">
+            <i class="bi bi-credit-card-2-front me-3"></i>Payment
+          </h4>
+
+          <div class="my-1 row g-3 row-col-3 justify-content-evenly">
+            <div class="form-check col-3">
+              <input
+                id="credit"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                checked=""
+                required=""
+              />
+              <label class="form-check-label" for="credit">Credit card</label>
+            </div>
+            <div class="form-check col-3">
+              <input
+                id="debit"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                required=""
+              />
+              <label class="form-check-label" for="debit">Debit card</label>
+            </div>
+            <div class="form-check col-3">
+              <input
+                id="paypal"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                required=""
+              />
+              <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
           </div>
 
-          <div class="col-md-6">
-            <label for="cc-number" class="form-label">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required="" />
-            <div class="invalid-feedback">Credit card number is required</div>
-          </div>
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="cc-name" class="form-label">Name on card</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-name"
+                placeholder="name on card"
+                required
+              />
+              <div class="invalid-feedback">Name on card is required</div>
+            </div>
 
-          <div class="justify-content-evenly text-center row">
-            <div class="col-md-3">
+            <div class="col-md-6">
+              <label for="cc-number" class="form-label"
+                >Credit card number</label
+              >
+              <input
+                type="text"
+                id="formControlLgXc"
+                class="form-control form-control-lg"
+                placeholder="**** **** **** 3193"
+                required
+              />
+              <!-- <input
+                type="number"
+                class="form-control"
+                id="cc-number"
+                maxlength="16"
+                placeholder=""
+                required
+              /> -->
+              <!-- <div
+                class="alert alert-danger"
+                *ngIf="NumCard.touched"
+              >
+                Email is required
+              </div> -->
+
+              <div class="invalid-feedback">Credit card number is required</div>
+            </div>
+
+            <!-- <div class="justify-content-evenly text-center row"> -->
+            <div class="col-md-6">
               <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required="" />
+              <input
+                type="text"
+                id="typeExp"
+                class="form-control form-control-lg"
+                placeholder="MM/YYYY"
+                size="7"
+                id="exp"
+                minlength="7"
+                maxlength="7"
+              />
               <div class="invalid-feedback">Expiration date required</div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-6">
               <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required="" />
+              <input
+                type="password"
+                minlength="3"
+                maxlength="3"
+                class="form-control form-control-lg"
+                id="cc-cvv"
+                placeholder="-  -  -"
+                required
+              />
               <div class="invalid-feedback">Security code required</div>
             </div>
+            <!-- </div> -->
           </div>
-        </div>
 
-        <hr class="my-3" />
+          <hr class="my-3" />
 
-        <div class="modal-footer justify-content-evenly">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            cancel
-          </button>
-          <button  class=" btn d-flex col text-center btn btn-success btn-lg justify-content-center" data-dismiss="modal" data-bs-dismiss="modal" (click)="PayMent()" type="button">
-            <div class="spinner-border text-warning me-3" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            PAY NOW
-          </button>
+          <div class="modal-footer justify-content-evenly">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              cancel
+            </button>
+            <button
+              class="btn d-flex col text-center btn btn-lg justify-content-center"
+              style="background-color: #8b0000; color: #fff; font-weight: bold"
+              data-dismiss="modal"
+              data-bs-dismiss="modal"
+              (click)="PayMent()"
+              type="button"
+              [disabled]="paymentForm.invalid"
+            >
+              <div class="spinner-border text-warning me-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              PAY NOW
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
+</form>
 <app-footer></app-footer>
