@@ -31,12 +31,13 @@
 
 
 .colorBtn {
-  background-color: #8b0000;
+  background-color: #917236;
   color: #ffffff;
 }
 .colorBtnAdd {
-  background-color: #008B8B ;
-  color: #ffffff;
+  /* background-color: #94AB7C ; */
+  border: 1px solid #917236;
+  color: #0000009c;
 }
 
 .fixed-top-right {
@@ -87,7 +88,7 @@
   padding-bottom: 5px; */
   padding-bottom: 5%;
   background-color: #ddffbb13;
-  box-shadow: 2px 2px 5px #bfbfbf;
+  box-shadow: 2px 2px 5px #917336b0;
   height: 45vh;
 }
 
