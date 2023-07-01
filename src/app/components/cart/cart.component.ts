@@ -1,7 +1,11 @@
+import { Router } from '@angular/router';
 import { Iitem } from './../../interface/iitem';
 import { CartService } from './../../services/cart.service';
 import { ItemsService } from './../../services/items.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Action } from 'rxjs/internal/scheduler/Action';
+
 
 @Component({
   selector: 'app-cart',
@@ -14,15 +18,25 @@ export class CartComponent implements OnInit {
   x: number = 0;
   sum: number = 0;
   totalPrice: number;
+
+
   constructor(
     private itemsService: ItemsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router:Router
+
   ) {
     this.totalPrice = this.total();
+
   }
   ngOnInit(): void {
     this.upDateCart();
+
   }
+
+
+
+
 
 
   total(): number {
@@ -75,4 +89,23 @@ export class CartComponent implements OnInit {
   ret(item: Iitem): number {
     return item.quantity * item.price;
   }
+
+   totalQuantity():number{
+    return this.cartService.totalQuantity();
+  }
+
+  PayMent(){
+   this.clearAllItem();
+   this.router.navigate(['/']);
+  }
+
+   disablePayButton(): void {
+    const payButton = document.querySelector('#payButton') as HTMLButtonElement;
+    if (this.total() === 0) {
+      payButton.disabled = true;
+    } else {
+      payButton.disabled = false;
+    }
+      }
+
 }

@@ -9,6 +9,9 @@ import {MatSliderModule} from '@angular/material/slider';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -61,8 +64,8 @@ import { SearchPipe } from './Pipe/search.pipe';
     MatSliderModule,
     CarouselModule,
     MatCardModule,
-    MatFormFieldModule
-
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

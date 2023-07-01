@@ -20,7 +20,7 @@ export class ItemCountryService {
     {
       id:'q2',
       name:'monaco  chocolate',
-      discretion:'Luxurious and sophisticated, crafted with precision and excellence. Indulge in the smooth, creamy taste of Swiss chocolate.',
+      discretion:'Luxurious, decadent and sophisticated, crafted with precision and excellence. Indulge in the smooth, creamy taste of Swiss chocolate.',
       photoUrl:'https://img.freepik.com/premium-psd/3d-chocolate-monaco-flag-rendering-front-view_391890-21937.jpg?w=740'
 
     },

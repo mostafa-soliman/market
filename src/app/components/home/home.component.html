@@ -1,72 +1,48 @@
-
 <!-- <p Style="margin-top: 300px;"></p> -->
-<div class="d-flex flex-row align-items-center  p-2  fixed-top-right"  >
-<div *ngIf="!isCollapsed">
-  <!-- إضافة المحتوى الذي تريد إظهاره / إخفاؤه هنا -->
-  <input [(ngModel)]="searchText" type="text" class="form-control "  placeholder="Search">
 
-</div>
-<button class="my-button mx-3  "  (click)="isCollapsed = !isCollapsed"><mat-icon>search</mat-icon></button>
+<div class="inline-block row justify-content-evenly sticky-top " style="margin-top: 75px">
+  <div class="col-6 col-sm-4 ">
+    <div class="input-group mb-3">
+      <div class="input-group-append">
+        <span class="input-group-text bg-transparent border-0"
+          ><mat-icon style="color:blue">search</mat-icon></span
+        >
+      </div>
+      <input
+      [(ngModel)]="searchText"
+        type="text"
+        class="form-control rounded-pill pl-4"
+        placeholder="Search"
+        aria-label="Search"
+      />
 
-</div>
-<div class="d-flex flex-row align-items-center  p-2  fixed-top-right-sort"  >
-<div *ngIf="!isCollapsedSort">
-  <div class="ps-3">
-    <select class="form-select" #sort (change)="sortItems(sort.value)">
-      <option selected value="sadasdasd"></option>
-      <option value="PRICEDECS"> Price:Low to Hight</option>
-      <option value="PRICEASC"> Price:Hight to Low</option>
-      <option value="NAME">NAME</option>
-    </select>
+    </div>
+  </div>
+
+  <div class="col-6 col-sm-4 ">
+    <div class="input-group mb-3">
+      <div class="input-group-append ">
+        <span class="input-group-text bg-transparent border-0"
+          ><mat-icon style="color:rgb(47, 224, 255)">sort</mat-icon></span
+        >
+      </div>
+      <select
+        class="form-select rounded-pill pl-4 pe-0"
+        id="inputGroupSelect01"
+        #sort
+        (change)="sortItems(sort.value)"
+      >
+        <option selected></option>
+        <option value="PRICEDECS">Price:Low to Hight</option>
+        <option value="PRICEASC">Price:Hight to Low</option>
+        <option value="NAME">NAME</option>
+      </select>
+
+    </div>
   </div>
 </div>
-<button class="my-button-sort mx-3  "  (click)="isCollapsedSort = !isCollapsedSort"><mat-icon>sort</mat-icon></button>
 
-</div>
-
-
-
-<!-- <div class="d-flex flex-row align-items-center bg-light p-2 shadow fixed-top-right"  >
-  <div class="flex-grow-1" >
-    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search">
-  </div>
-  <div class="ps-3">
-    <span class="form-control bg-transparent border-0">SORT:</span>
-  </div>
-  <div class="ps-3">
-    <select class="form-select" #sort (change)="sortItems(sort.value)">
-      <option selected value="sadasdasd">All</option>
-      <option value="PRICEDECS"> Price:Low to Hight</option>
-      <option value="PRICEASC"> Price:Hight to Low</option>
-      <option value="NAME">NAME</option>
-    </select>
-  </div>
-</div> -->
-
-
-<!-- cccccccccccccccccccccccccc -->
-
-
-<!-- <input [(ngModel)]="searchText" type="text" placeholder="Search"> -->
-
-<!-- <div class=" col col-1 inline-block">
-  <span class="form-control" style="background-color: transparent; border: 0;">SORT:
-  </span>
-</div> -->
-
-<!-- <div class=" col col-2 inline-block">
-
-  <select class="form-select col" name="" id="" #sort (change)="sortItems(sort.value)">
-    <option selected value="sadasdasd"></option>
-    <option value="PRICEDECS"> Price:Low to Hight</option>
-    <option value="PRICEASC"> Price:Hight to Low</option>
-    <option value="NAME"> NAME</option>
-  </select>
-
-</div> -->
-<!--  -->
-
-<div class="body container-fluid">
+<div class="container">
   <div class="row row-cols-1 row-cols-md-3 g-2">
     <div
       class="col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -101,3 +77,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

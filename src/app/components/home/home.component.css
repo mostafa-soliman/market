@@ -2,7 +2,7 @@
   /* background-color: aqua; */
   /* height: 5000px; */
   /* padding-top: 13%; */
-  margin-top: 120px;
+  /* margin-top: 120px; */
   /* margin:0; */
   /* box-sizing: border-box; */
   /* z-index: 0; */
@@ -31,12 +31,13 @@
 
 
 .colorBtn {
-  background-color: #8b0000;
+  background-color: #917236;
   color: #ffffff;
 }
 .colorBtnAdd {
-  background-color: #a4bc92;
-  color: #ffffff;
+  /* background-color: #94AB7C ; */
+  border: 1px solid #917236;
+  color: #0000009c;
 }
 
 .fixed-top-right {
@@ -86,8 +87,8 @@
 
   padding-bottom: 5px; */
   padding-bottom: 5%;
-  background-color: #ddffbb1f;
-  box-shadow: 2px 2px 5px #bfbfbf;
+  background-color: #ddffbb13;
+  box-shadow: 2px 2px 5px #917336b0;
   height: 45vh;
 }
 

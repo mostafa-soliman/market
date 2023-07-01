@@ -1,21 +1,11 @@
-<div class="nav">
-  <app-navbar></app-navbar>
+<!-- <div class="nav"> -->
+<app-navbar></app-navbar>
+<!-- </div> -->
+  <div class="route-container" [@router]="myOutlet.activatedRouteData['index']">
+    <router-outlet #myOutlet="outlet"></router-outlet>
 </div>
-<div class="main-container">
-  <div class="container">
-    <div
-      class="route-container"
-      [@router]="myOutlet.activatedRouteData['index']"
-    >
+  <!-- <div style="bottom:0%"> -->
+  <!-- </div> -->
+  <!-- <notifier-container></notifier-container> -->
 
-      <router-outlet  #myOutlet="outlet" ></router-outlet>
-    </div>
-  </div>
-
-
-
-  <div class="footer">
-    <app-footer></app-footer>
-  </div>
-</div>
 

@@ -1,151 +1,149 @@
-<div class="container">
-  <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary color-nav">
-    <div class="container-fluid">
-      <a routerLink="/">
-        <img
-          class="navbar-brand"
-          src="https://logos.textgiraffe.com/logos/logo-name/Chocolate-designstyle-chocolate-m.png"
-          alt=""
-          srcset=""
-        />
-      </a>
-      <!-- <span class="d-flex navbar-nav   navbar-right"> -->
-      <span class="d-flex navbar-right">
-        <a
-          style="
-            margin-right: 20px;
-            border: none;
-            padding: 0px 0px 0px 0px;
-            outline: none;
-            color: #333333;
-          "
-          routerLink="/cart"
-          routerLinkActive="active"
-          class="navbar-toggler mt-auto"
-          *ngIf="!isOpen"
-        >
-          <mat-icon mat-card-avatar>shopping_cart</mat-icon>
-          <mat-badge
-            matBadgeColor="accent"
-            [matBadge]="totalQuantity"
-          ></mat-badge>
-        </a>
-
-        <!-- </span> -->
-        <button
-          (click)="toggleNavbar()"
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </span>
-      <div
-        class="collapse navbar-collapse"
-        [class.show]="isOpen"
-        id="navbarSupportedContent"
+<nav class="navbar navbar-expand-lg bg-light fixed-top" style="border-bottom: #7a41004b solid 1px;">
+  <div class="container-fluid">
+    <a routerLink="/">
+      <img
+        class="navbar-brand"
+        src="https://logos.textgiraffe.com/logos/logo-name/Chocolate-designstyle-chocolate-m.png"
+        alt=""
+        srcset=""
+      />
+    </a>
+    <span class="d-flex navbar-right">
+      <a
+        style="
+          margin-right: 20px;
+          border: none;
+          padding: 0px 0px 0px 0px;
+          outline: none;
+          color: #333333;
+        "
+        routerLink="/cart"
+        routerLinkActive="active"
+        class="navbar-toggler mt-auto"
+        *ngIf="!isOpen"
       >
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="closeNavbar()"
-              aria-current="page"
-              routerLink="/"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="closeNavbar()"
-              aria-current="page"
-              routerLink="/home"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-              >Shopping</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="closeNavbar()"
-              routerLink="/cart"
-              routerLinkActive="active"
-              >Cart</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="closeNavbar()"
-              routerLink="/admin"
-              routerLinkActive="active"
-              >Dashboard</a
-            >
-          </li>
-        </ul>
-        <span class="d-flex navbar-nav navbar-right">
-          <!-- We added the cart icon here in the navbar by Angular Material, specifically the badge
-And make property pinding And we called the totalQuantity function from navbar.ts
-It is called from cart.Service -->
+        <mat-icon mat-card-avatar>shopping_cart</mat-icon>
+        <mat-badge
+          matBadgeColor="accent"
+          [matBadge]="totalQuantity"
+        ></mat-badge>
+      </a>
+      <!--
 
-          <li class="nav-item mt-auto">
-            <a
-              style="margin-right: 30px; color: #333333"
-              routerLink="/cart"
-              routerLinkActive="active"
-              *ngIf="!isOpen"
-            >
-              <mat-icon mat-card-avatar>shopping_cart</mat-icon>
-              <mat-badge
-                matBadgeColor="accent"
-                [matBadge]="totalQuantity"
-              ></mat-badge>
-            </a>
-          </li>
+ -->
+      <button
+        (click)="toggleNavbar()"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </span>
+    <!--   [class.show]="isOpen" -->
+    <div
+      class="collapse navbar-collapse"
+      [class.show]="isOpen"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="closeNavbar()"
+            aria-current="page"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="bi bi-house-door me-1"></i>Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="closeNavbar()"
+            aria-current="page"
+            routerLink="/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i class="bi bi-bag-check me-1"></i>Shopping</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="closeNavbar()"
+            routerLink="/cart"
+            routerLinkActive="active"
+            ><i class="bi bi-cart-check me-1"></i>Cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="closeNavbar()"
+            routerLink="/admin"
+            routerLinkActive="active"
+            ><i class="bi bi-clipboard-data me-1"></i>Dashboard</a
+          >
+        </li>
+      </ul>
 
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="closeNavbar()"
-              [hidden]="isUserLog"
-              routerLink="/login"
-              routerLinkActive="active"
-              >Login</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              (click)="closeNavbar()"
-              [hidden]="isUserLog"
-              routerLink="/signup"
-              routerLinkActive="active"
-              >Signup</a
-            >
-          </li>
+      <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+      <ul class="d-flex navbar-nav navbar-right">
+        <a
+        class="my-auto"
+        style="margin-right: 30px; color: #333333"
+        routerLink="/cart"
+        routerLinkActive="active"
+        *ngIf="!isOpen"
+      >
+        <mat-icon mat-card-avatar>shopping_cart</mat-icon>
+        <mat-badge
+          matBadgeColor="accent"
+          [matBadge]="totalQuantity"
+        ></mat-badge>
+      </a>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="closeNavbar()"
+            [hidden]="isUserLog"
+            routerLink="/login"
+            routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            (click)="closeNavbar()"
+            [hidden]="isUserLog"
+            routerLink="/signup"
+            routerLinkActive="active"
+            >Signup</a
+          >
+        </li>
 
-          <li class="nav-item">
-            <button
-              type="button"
-              (click)="closeNavbar()"
-              [hidden]="!isUserLog"
-              class="btn btnLogOut"
-              (click)="Logout()"
-            >
-              LogOut
-            </button>
-          </li>
-        </span>
-      </div>
+        <li class="nav-item">
+          <button
+            type="button"
+            (click)="closeNavbar()"
+            [hidden]="!isUserLog"
+            class="btn btnLogOut"
+            (click)="Logout()"
+          >
+            LogOut
+          </button>
+        </li>
+      </ul>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>

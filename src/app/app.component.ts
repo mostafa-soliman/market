@@ -32,7 +32,7 @@ import { Component } from '@angular/core';
   ]
 })
 export class AppComponent {
-  title = 'market';
+  title = 'Chocolate';
 
 
   constructor(){

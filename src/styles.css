@@ -1,21 +1,59 @@
-.route-container{
+/* @import "./assets/bootstrap.min.css"; */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap");
+/* @import "~angular-notifier/styles.css"; */
+
+body,
+html {
+  font-family: "Ubuntu", sans-serif;
+}
+.route-container {
   position: relative;
 }
 
-.route-container > *{
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.route-container > * {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
 }
 
-body{
-  overflow-x:hidden ;
-  background-color: #FCFCFC  ;
+body {
+  overflow-x: hidden;
+  background-color: #fcfcfc;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

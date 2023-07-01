@@ -18,11 +18,15 @@ export class MasterHomeComponent implements OnInit {
   constructor(
     private itemCountryService: ItemCountryService,
     private itemsService: ItemsService,
-    private router: Router
+    private router: Router,
+
   ) {}
 
   ngOnInit(): void {
     this.itemCountry = this.itemCountryService.getAllItemQ();
+
+
+
   }
 
   customOptions: OwlOptions = {

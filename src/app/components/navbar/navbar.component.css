@@ -27,9 +27,21 @@
 }
 .nav-link.active,
 .nav-link:active {
-  background-color: #8fad7b;
-  color: #ffffff;
+  /* background-color: #ddffbb70; */
+  color: #030303;
+  border-bottom:2px solid #7a4100c7 ;
+  border-radius: 0%;
+
 }
+
+.nav-link.active .bi {
+  /* background-color: #ddffbb70; */
+  /* color: #030303; */
+  color: #7a4100c7 ;
+  /* border-radius: 0%; */
+
+}
+
 
 .color-nav img {
   height: 60px;
